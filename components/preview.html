@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preview dos componentes - Lar Certo</title>
+  <link rel="stylesheet" href="components.css">
+  <script src="components.js" defer></script>
+  <style>
+    body { margin: 0; background: var(--lc-bg); font-family: var(--lc-font-sans); color: var(--lc-text); }
+    h2 { margin: 48px 0 16px; font: 600 22px var(--lc-font-sans); }
+    .hero { position: relative; min-height: 280px; background: linear-gradient(135deg, #3b4a52, #8a7a5a); }
+    .linha { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .categorias { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+  </style>
+</head>
+<body>
+  <!-- Header sobreposto ao hero (Home) -->
+  <div class="hero">
+    <div data-component="header" data-overlay="true" data-active="comprar"></div>
+  </div>
+
+  <main class="lc-container">
+    <h2>Botões e chips</h2>
+    <div class="linha">
+      <button class="lc-btn lc-btn--primary">Buscar Imóveis</button>
+      <button class="lc-btn lc-btn--dark">Aplicar Filtros</button>
+      <button class="lc-btn lc-btn--whatsapp">Fale pelo WhatsApp</button>
+      <button class="lc-btn lc-btn--outline">Google</button>
+      <button class="lc-chip is-active">Todos (3)</button>
+      <button class="lc-chip">Casas (2)</button>
+      <span class="lc-badge">Destaque</span>
+    </div>
+
+    <h2>Estilo de vida</h2>
+    <div class="categorias" id="categorias"></div>
+
+    <h2>Cards de imóveis</h2>
+    <div class="lc-grid-cards" id="cards"></div>
+
+    <h2>Modal</h2>
+    <button class="lc-btn lc-btn--primary" id="abrir-modal">Abrir modal</button>
+  </main>
+
+  <div data-component="footer"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var imoveis = [
+        { id: 1, titulo: "Casa em condomínio", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 850000, area: 126, quartos: 3, banheiros: 2, vagas: 2 },
+        { id: 2, titulo: "Casa em condomínio", bairro: "Centro", cidade: "Joinville", uf: "SC", preco: 950000, area: 126, quartos: 4, banheiros: 3, vagas: 2, destaque: true },
+        { id: 3, titulo: "Apartamento", bairro: "Atiradores", cidade: "Joinville", uf: "SC", preco: 3500, area: 89, quartos: 2, banheiros: 2, vagas: 1, finalidade: "alugar" }
+      ];
+      LarCerto.renderCards(imoveis, document.getElementById("cards"));
+
+      var categorias = [
+        { icone: "mar", titulo: "Perto do Mar", texto: "Viver com a brisa" },
+        { icone: "natureza", titulo: "Mais contato com a natureza", texto: "" },
+        { icone: "urbana", titulo: "Vida urbana", texto: "Praticidade diaria" },
+        { icone: "office", titulo: "Home Office", texto: "Espaço para focar" },
+        { icone: "familia", titulo: "Para família", texto: "Mais conforto" }
+      ];
+      categorias.forEach(function (c) {
+        document.getElementById("categorias").appendChild(LarCerto.criarCategoria(c));
+      });
+
+      document.getElementById("abrir-modal").addEventListener("click", function () {
+        LarCerto.abrirModal({ titulo: "Agendar visita", conteudo: "Conteúdo do modal de exemplo." });
+      });
+    });
+  </script>
+</body>
+</html>

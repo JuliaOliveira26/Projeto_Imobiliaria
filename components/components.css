@@ -1,0 +1,626 @@
+/* ==========================================================================
+   Lar Certo - Estilos dos componentes globais
+   Header, Footer, Cards, Modal, Botões, Chips e Badges
+   Prefixo "lc-" evita colisão com os estilos de cada página.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Red+Hat+Display:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Cores */
+  --lc-bg: #f0efe6;
+  --lc-surface: #ffffff;
+  --lc-surface-alt: #f8f8f6;
+  --lc-header-pill: rgba(224, 221, 213, 0.92);
+  --lc-categoria: #bac3c0;
+  --lc-gold: #e8bd5a;
+  --lc-gold-hover: #dcad40;
+  --lc-gold-dark: #7a5a00;
+  --lc-green: #3e8e77;
+  --lc-green-hover: #347a66;
+  --lc-text: #1a1a1a;
+  --lc-text-muted: #6b6b6b;
+  --lc-border: #d9d6cc;
+  --lc-dark: #0d0d0d;
+
+  /* Tipografia */
+  --lc-font-sans: "Red Hat Display", "Segoe UI", system-ui, sans-serif;
+  --lc-font-serif: "Playfair Display", Georgia, serif;
+
+  /* Forma e sombra */
+  --lc-radius-sm: 8px;
+  --lc-radius: 16px;
+  --lc-radius-lg: 24px;
+  --lc-radius-pill: 999px;
+  --lc-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --lc-shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
+
+  --lc-container: 1280px;
+  --lc-header-h: 72px;
+}
+
+/* ---------- Utilidades ---------- */
+.lc-container {
+  width: 100%;
+  max-width: var(--lc-container);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.lc-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   BOTÕES
+   ========================================================================== */
+.lc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: var(--lc-radius-sm);
+  font: 600 16px/1.2 var(--lc-font-sans);
+  color: var(--lc-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.lc-btn:focus-visible,
+.lc-icon-btn:focus-visible,
+.lc-chip:focus-visible,
+.lc-nav__link:focus-visible,
+.lc-card__fav:focus-visible {
+  outline: 2px solid var(--lc-dark);
+  outline-offset: 2px;
+}
+
+.lc-btn--primary { background: var(--lc-gold); }
+.lc-btn--primary:hover { background: var(--lc-gold-hover); }
+
+.lc-btn--dark { background: var(--lc-dark); color: #fff; }
+.lc-btn--dark:hover { background: #2b2b2b; }
+
+.lc-btn--whatsapp { background: var(--lc-green); color: #fff; }
+.lc-btn--whatsapp:hover { background: var(--lc-green-hover); }
+
+.lc-btn--outline {
+  background: var(--lc-surface);
+  border: 1px solid var(--lc-border);
+}
+.lc-btn--outline:hover { border-color: var(--lc-text); }
+
+.lc-btn--block { width: 100%; }
+.lc-btn--pill { border-radius: var(--lc-radius-pill); }
+
+/* ---------- Botão de ícone ---------- */
+.lc-icon-btn {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--lc-text);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.lc-icon-btn:hover { background: rgba(0, 0, 0, 0.07); }
+.lc-icon-btn svg { width: 24px; height: 24px; }
+
+.lc-count {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--lc-radius-pill);
+  background: var(--lc-gold);
+  font: 700 11px/18px var(--lc-font-sans);
+  text-align: center;
+}
+
+/* ==========================================================================
+   CHIPS (filtros de lista: Todos, Casas, Apartamentos...)
+   ========================================================================== */
+.lc-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border: 1px solid var(--lc-border);
+  border-radius: var(--lc-radius-pill);
+  background: var(--lc-surface);
+  color: var(--lc-text-muted);
+  font: 600 16px/1.2 var(--lc-font-sans);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.lc-chip:hover { border-color: var(--lc-text-muted); }
+.lc-chip[aria-pressed="true"],
+.lc-chip.is-active {
+  background: var(--lc-gold);
+  border-color: var(--lc-gold);
+  color: #fff;
+}
+
+/* ==========================================================================
+   BADGE
+   ========================================================================== */
+.lc-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 4px;
+  background: var(--lc-gold);
+  color: var(--lc-text);
+  font: 700 14px/1.2 var(--lc-font-sans);
+}
+
+/* ==========================================================================
+   HEADER / MENU
+   Menu único: pílula arredondada.
+   Use data-overlay="true" para sobrepor ao hero (position absolute).
+   ========================================================================== */
+.lc-header {
+  position: relative;
+  z-index: 100;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 16px 0;
+  font-family: var(--lc-font-sans);
+  color: var(--lc-text);
+}
+
+.lc-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  min-height: 64px;
+  padding-inline: 24px;
+  border-radius: var(--lc-radius-pill);
+  background: var(--lc-header-pill);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Logo */
+.lc-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: start;
+  color: var(--lc-text);
+  text-decoration: none;
+}
+.lc-logo__mark { width: 28px; height: 36px; flex: none; }
+.lc-logo__text {
+  font: 300 26px/1 var(--lc-font-sans);
+  letter-spacing: 0.02em;
+}
+.lc-logo__text b { font-weight: 800; }
+.lc-logo--sm .lc-logo__mark { width: 22px; height: 28px; }
+.lc-logo--sm .lc-logo__text { font-size: 23px; }
+
+/* Navegação */
+.lc-nav {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.lc-nav__link {
+  position: relative;
+  padding: 6px 0;
+  color: var(--lc-text);
+  font: 500 18px/1.2 var(--lc-font-sans);
+  text-decoration: none;
+}
+.lc-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--lc-gold);
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.lc-nav__link:hover::after,
+.lc-nav__link[aria-current="page"]::after { transform: scaleX(1); }
+
+/* Ações à direita */
+.lc-header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.lc-account {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border-radius: var(--lc-radius-pill);
+  color: var(--lc-text);
+  font: 500 16px/1.2 var(--lc-font-sans);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.lc-account:hover { background: rgba(0, 0, 0, 0.07); }
+.lc-account__avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--lc-border);
+}
+.lc-account__avatar svg { width: 22px; height: 22px; }
+.lc-account__avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Botão hambúrguer (só mobile) */
+.lc-burger { display: none; }
+
+/* Sobreposto ao hero */
+.lc-header[data-overlay="true"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ---------- Header: mobile ---------- */
+@media (max-width: 900px) {
+  .lc-header__inner {
+    grid-template-columns: 1fr auto;
+    padding-inline: 16px;
+  }
+
+  .lc-burger {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+  .lc-burger svg { width: 26px; height: 26px; }
+  .lc-burger .lc-burger__close { display: none; }
+  .lc-burger[aria-expanded="true"] .lc-burger__open { display: none; }
+  .lc-burger[aria-expanded="true"] .lc-burger__close { display: block; }
+
+  .lc-header__actions { grid-column: 2; grid-row: 1; }
+  .lc-header__inner > .lc-burger { grid-column: 2; grid-row: 1; justify-self: end; }
+  .lc-header__actions { margin-right: 52px; }
+
+  .lc-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 24px 16px;
+    background: var(--lc-bg);
+    box-shadow: var(--lc-shadow);
+    display: none;
+    top: calc(100% + 8px);
+    left: 16px;
+    right: 16px;
+    border-radius: var(--lc-radius);
+  }
+  .lc-nav.is-open { display: flex; }
+  .lc-nav__link {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--lc-border);
+  }
+  .lc-nav__link::after { display: none; }
+  .lc-nav__link[aria-current="page"] { font-weight: 700; }
+
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.lc-footer {
+  margin-top: 64px;
+  padding: 40px 0 24px;
+  background: var(--lc-bg);
+  border-top: 1px solid var(--lc-border);
+  color: var(--lc-text-muted);
+  font-family: var(--lc-font-sans);
+}
+.lc-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+.lc-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lc-footer__nav a {
+  color: var(--lc-text);
+  font: 500 16px/1.2 var(--lc-font-sans);
+  text-decoration: none;
+}
+.lc-footer__nav a:hover { color: var(--lc-gold-dark); text-decoration: underline; }
+
+.lc-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--lc-border);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.lc-footer__bottom a {
+  color: var(--lc-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+.lc-footer__bottom a:hover { text-decoration: underline; }
+.lc-footer__dot { font-size: 10px; }
+
+/* ==========================================================================
+   CARD DE IMÓVEL
+   ========================================================================== */
+.lc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--lc-radius);
+  background: var(--lc-surface);
+  box-shadow: var(--lc-shadow);
+  font-family: var(--lc-font-sans);
+  color: var(--lc-text);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.lc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.lc-card__media {
+  position: relative;
+  aspect-ratio: 390 / 335;
+  background: var(--lc-border);
+}
+.lc-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.lc-card__media .lc-badge {
+  position: absolute;
+  top: 4px;
+  left: 11px;
+}
+
+/* Favoritar e compartilhar */
+.lc-card__fav,
+.lc-card__share {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.lc-card__fav { top: 8px; right: 8px; color: #fff; }
+.lc-card__fav svg {
+  width: 26px;
+  height: 26px;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+  transition: transform 0.15s, fill 0.15s;
+}
+.lc-card__fav:hover svg { transform: scale(1.12); }
+.lc-card__fav[aria-pressed="true"] svg { fill: currentColor; }
+
+.lc-card__share {
+  right: 12px;
+  bottom: 96px;
+  color: var(--lc-text);
+}
+.lc-card__share svg { width: 22px; height: 22px; }
+.lc-card__share:hover { background: rgba(0, 0, 0, 0.07); }
+
+.lc-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px 24px 20px;
+}
+.lc-card__title {
+  margin: 0;
+  font: 400 24px/1.2 var(--lc-font-serif);
+}
+/* O link do título cobre o card inteiro */
+.lc-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.lc-card__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.lc-card__local {
+  margin: 0;
+  color: var(--lc-gold-dark);
+  font-size: 14px;
+}
+.lc-card__local .lc-sep {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 6px;
+  vertical-align: -1px;
+  background: currentColor;
+}
+.lc-card__preco {
+  margin: 12px 0 0;
+  font: 700 26px/1.2 var(--lc-font-sans);
+}
+.lc-card__preco small {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--lc-text-muted);
+}
+.lc-card__specs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--lc-text-muted);
+  font-size: 14px;
+}
+
+/* Grade utilitária para listas de cards */
+.lc-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+/* ==========================================================================
+   CARD DE CATEGORIA / ESTILO DE VIDA
+   ========================================================================== */
+.lc-categoria {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  min-height: 175px;
+  padding: 24px 14px;
+  border: 0;
+  border-radius: var(--lc-radius);
+  background: var(--lc-categoria);
+  color: var(--lc-text);
+  font-family: var(--lc-font-sans);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.lc-categoria:hover { transform: translateY(-3px); background: #adb8b4; }
+.lc-categoria__icone { width: 52px; height: 52px; margin-bottom: 8px; }
+.lc-categoria__titulo { margin: 0; font: 500 16px/1.3 var(--lc-font-sans); }
+.lc-categoria__texto { margin: 0; color: #4d5654; font-size: 15px; }
+
+/* ==========================================================================
+   MODAL
+   ========================================================================== */
+.lc-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  font-family: var(--lc-font-sans);
+}
+.lc-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.55);
+  animation: lc-fade 0.2s ease;
+}
+.lc-modal__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 32px);
+  overflow: hidden;
+  border-radius: var(--lc-radius-lg);
+  background: var(--lc-surface);
+  box-shadow: var(--lc-shadow-lg);
+  animation: lc-pop 0.2s ease;
+}
+.lc-modal[data-size="sm"] .lc-modal__box { max-width: 400px; }
+.lc-modal[data-size="lg"] .lc-modal__box { max-width: 800px; }
+
+.lc-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.lc-modal__titulo {
+  margin: 0;
+  padding: 28px 56px 8px 28px;
+  font: 600 24px/1.2 var(--lc-font-serif);
+}
+.lc-modal__corpo {
+  padding: 8px 28px 24px;
+  overflow-y: auto;
+  color: var(--lc-text-muted);
+  line-height: 1.55;
+}
+.lc-modal__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 28px 24px;
+  border-top: 1px solid var(--lc-border);
+}
+.lc-modal__rodape:empty { display: none; }
+
+body.lc-modal-open { overflow: hidden; }
+
+@keyframes lc-fade { from { opacity: 0; } }
+@keyframes lc-pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .lc-modal__overlay,
+  .lc-modal__box { animation: none; }
+  .lc-card,
+  .lc-categoria { transition: none; }
+}
