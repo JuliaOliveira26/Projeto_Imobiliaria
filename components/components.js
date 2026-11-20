@@ -1,28 +1,18 @@
-// Componentes globais do Lar Certo (header, footer, cards e modal).
-// Não precisa de servidor: funciona abrindo o arquivo direto no navegador.
-//
-// Como usar numa página:
-//   <link rel="stylesheet" href="../../components/components.css">
-//   <script src="../../components/components.js" defer></script>
-//   <div data-component="header" data-overlay="true" data-active="comprar"></div>
-//   <div data-component="footer"></div>
+
 
 (function () {
-  // Raiz do projeto, descoberta pelo caminho deste próprio script
   var RAIZ = new URL("../", document.currentScript.src).href;
 
   function url(caminho) {
     return RAIZ + caminho;
   }
 
-  // Evita que texto digitado/vindo de dados quebre o HTML
   function esc(valor) {
     var d = document.createElement("div");
     d.textContent = valor == null ? "" : valor;
     return d.innerHTML;
   }
 
-  // ---------- Ícones ----------
   var LOGO =
     '<span class="lc-logo__mark-wrap"><svg class="lc-logo__mark" viewBox="0 0 28 36" fill="currentColor" aria-hidden="true">' +
     '<path d="M0 36V14l7-5v27H0Zm9 0V4l8-4v36H9Zm10 0V12l9 5v19h-9Z"/></svg></span>' +
@@ -37,9 +27,9 @@
     urbana: '<path d="M6 44V14h14v30M20 44V6h22v38M4 44h40M11 21h4M11 28h4M11 35h4M27 14h4M27 22h4M27 30h4"/>',
     office: '<rect x="12" y="6" width="24" height="18" rx="2"/><path d="M6 32h36M10 32v12M38 32v12M18 24v8M30 24v8"/>',
     familia: '<circle cx="12" cy="9" r="4"/><circle cx="34" cy="13" r="3.5"/><path d="M6 44V22c0-4 3-7 6-7s6 3 6 7v22M28 44V26c0-3 3-5 6-5s6 2 6 5v18"/>',
+    
   };
 
-  // ---------- Favoritos (guardados no navegador) ----------
   function listaFavoritos() {
     try {
       return JSON.parse(localStorage.getItem("larcerto:favoritos")) || [];
@@ -69,7 +59,6 @@
     });
   }
 
-  // ---------- Header ----------
   var LINKS = [
     ["comprar", "Comprar", "pages/filtros/index.html?finalidade=comprar"],
     ["alugar", "Alugar", "pages/filtros/index.html?finalidade=alugar"],
@@ -102,7 +91,6 @@
     );
   }
 
-  // Menu hambúrguer (celular)
   function ativarMenu(header) {
     var botao = header.querySelector(".lc-burger");
     var nav = header.querySelector(".lc-nav");
@@ -112,7 +100,6 @@
     });
   }
 
-  // ---------- Footer ----------
   function htmlFooter() {
     return (
       '<footer class="lc-footer"><div class="lc-container">' +
@@ -130,9 +117,7 @@
     );
   }
 
-  // ---------- Card de imóvel ----------
-  // imovel = { id, titulo, bairro, cidade, uf, preco, area, quartos, banheiros, vagas,
-  //            imagem, destaque, finalidade ("comprar" | "alugar") }
+
   function plural(n, um, varios) {
     return n + " " + (Number(n) === 1 ? um : varios);
   }
@@ -175,13 +160,10 @@
     return el;
   }
 
-  // Desenha vários cards dentro de um container
   function renderCards(imoveis, container) {
     container.replaceChildren.apply(container, imoveis.map(criarCard));
   }
 
-  // ---------- Card de categoria ----------
-  // categoria = { icone: "mar" | "natureza" | "urbana" | "office" | "familia", titulo, texto, href }
   function criarCategoria(cat) {
     var el = document.createElement("a");
     el.className = "lc-categoria";
@@ -194,7 +176,6 @@
     return el;
   }
 
-  // ---------- Modal ----------
   var modalEl = null;
 
   function abrirModal(opcoes) {
@@ -227,7 +208,6 @@
     if (e.key === "Escape") fecharModal();
   });
 
-  // ---------- Montagem dos <div data-component="..."> ----------
   function montarComponentes() {
     document.querySelectorAll("[data-component]").forEach(function (host) {
       var nome = host.dataset.component;
