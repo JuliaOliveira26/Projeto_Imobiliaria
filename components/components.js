@@ -13,21 +13,18 @@
     return d.innerHTML;
   }
 
-  var LOGO =
-    '<span class="lc-logo__mark-wrap"><svg class="lc-logo__mark" viewBox="0 0 28 36" fill="currentColor" aria-hidden="true">' +
-    '<path d="M0 36V14l7-5v27H0Zm9 0V4l8-4v36H9Zm10 0V12l9 5v19h-9Z"/></svg></span>' +
-    '<span class="lc-logo__text"><b>LAR</b>CERTO</span>';
+  function icone(nome, classe) {
+    return '<img class="' + (classe || "lc-icone") + '" src="' + url("assets/icons/" + nome + ".svg") + '" alt="">';
+  }
 
-  var CORACAO =
-    '<path d="M12 20.5s-7.5-4.6-9.2-9.4C1.7 7.8 3.6 4.5 7 4.5c2 0 3.7 1.1 5 3 1.3-1.9 3-3 5-3 3.4 0 5.3 3.3 4.2 6.6-1.7 4.8-9.2 9.4-9.2 9.4Z"/>';
+  var LOGO = '<img class="lc-logo__img" src="' + url("assets/icons/LOGO.svg") + '" alt="Lar Certo">';
 
   var ICONES = {
-    mar: '<path d="M10 24a14 14 0 0 1 28 0"/><path d="M4 32c4-4 8 4 12 0s8 4 12 0 8 4 12 0M4 40c4-4 8 4 12 0s8 4 12 0 8 4 12 0"/>',
-    natureza: '<circle cx="24" cy="17" r="11"/><path d="M24 28v16M18 44h12M24 36l-6-6M24 32l6-5"/>',
-    urbana: '<path d="M6 44V14h14v30M20 44V6h22v38M4 44h40M11 21h4M11 28h4M11 35h4M27 14h4M27 22h4M27 30h4"/>',
-    office: '<rect x="12" y="6" width="24" height="18" rx="2"/><path d="M6 32h36M10 32v12M38 32v12M18 24v8M30 24v8"/>',
-    familia: '<circle cx="12" cy="9" r="4"/><circle cx="34" cy="13" r="3.5"/><path d="M6 44V22c0-4 3-7 6-7s6 3 6 7v22M28 44V26c0-3 3-5 6-5s6 2 6 5v18"/>',
-    
+    mar: "iconoir--sea-and-sun",
+    natureza: "material-symbols--nature-outline",
+    urbana: "uix--urban-rural",
+    office: "iconmind--home-office-outline-thin",
+    familia: "guidance--changin-room-family",
   };
 
   function listaFavoritos() {
@@ -80,7 +77,7 @@
       '<nav class="lc-nav" id="lc-nav">' + links + "</nav>" +
       '<div class="lc-header__actions">' +
       '<a class="lc-icon-btn" href="' + url("pages/favoritos/index.html") + '" aria-label="Favoritos">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">' + CORACAO + "</svg>" +
+      icone("basil--heart-outline") +
       '<span class="lc-count" data-favoritos-count hidden>0</span></a>' +
       '<a class="lc-account" href="' + url("pages/login/index.html") + '">Entrar</a>' +
       "</div>" +
@@ -136,7 +133,7 @@
       (imovel.destaque ? '<span class="lc-badge">Destaque</span>' : "") +
       "</div>" +
       '<button class="lc-card__fav" type="button" aria-label="Favoritar imóvel">' +
-      '<svg viewBox="0 0 24 24" stroke-linejoin="round">' + CORACAO + "</svg></button>" +
+      icone("basil--heart-outline", "lc-fav-vazio") + icone("andrsrxn--heart-filled", "lc-fav-cheio") + "</button>" +
       '<div class="lc-card__body">' +
       '<h3 class="lc-card__title"><a href="' + link + '">' + esc(imovel.titulo) + "</a></h3>" +
       '<p class="lc-card__local">' + esc(imovel.bairro) + '<span class="lc-sep"></span>' + esc(local) + "</p>" +
@@ -169,8 +166,7 @@
     el.className = "lc-categoria";
     el.href = cat.href || "#";
     el.innerHTML =
-      '<svg class="lc-categoria__icone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' +
-      (ICONES[cat.icone] || "") + "</svg>" +
+      icone(ICONES[cat.icone] || cat.icone, "lc-categoria__icone") +
       '<h3 class="lc-categoria__titulo">' + esc(cat.titulo) + "</h3>" +
       '<p class="lc-categoria__texto">' + esc(cat.texto) + "</p>";
     return el;

@@ -101,3 +101,116 @@ lar-certo/
 | `shared/data/` | Guarda os dados dos imóveis utilizados nas páginas. |
 | `index.html` | Arquivo inicial do projeto, utilizado como ponto de entrada para a navegação. |
 | `README.md` | Documentação com informações sobre o projeto e sua estrutura. |
+
+---
+
+## Como usar os componentes globais
+
+Os componentes ficam em `components/` (`components.css` e `components.js`). Veja todos funcionando em `components/preview.html`.
+
+> Abra o projeto por um servidor local (ex.: Live Server do VS Code) para os caminhos e imagens carregarem corretamente.
+
+### 1. Importar na página
+
+No `<head>`, ajuste o caminho conforme a pasta da página:
+
+```html
+<!-- páginas dentro de pages/<nome>/ -->
+<link rel="stylesheet" href="../../components/components.css">
+<script src="../../components/components.js" defer></script>
+
+<!-- index.html na raiz -->
+<link rel="stylesheet" href="components/components.css">
+<script src="components/components.js" defer></script>
+```
+
+### 2. Header e Footer
+
+```html
+<body>
+  <div data-component="header" data-active="comprar"></div>
+
+  <main> ...conteúdo... </main>
+
+  <div data-component="footer"></div>
+</body>
+```
+
+| Atributo | Valores | Para que serve |
+|---|---|---|
+| `data-active` | `comprar`, `alugar`, `imoveis`, `sobre` | Destaca o item atual do menu |
+| `data-overlay` | `"true"` | Coloca o menu por cima de uma imagem (ex.: hero da home) |
+
+Exemplo com menu sobre o hero:
+
+```html
+<div data-component="header" data-overlay="true" data-active="comprar"></div>
+```
+
+### 3. Cards de imóveis
+
+```html
+<div id="lista-imoveis" class="lc-grid-cards"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    LarCerto.renderCards(
+      [
+        {
+          id: 1,
+          titulo: "Casa em condomínio",
+          bairro: "Centro",
+          cidade: "Florianópolis",
+          uf: "SC",
+          preco: 850000,
+          area: 126,
+          quartos: 3,
+          banheiros: 2,
+          vagas: 2,
+          imagem: "../../assets/images/casa1.jpg", // relativo à página
+          destaque: true,                          // mostra o selo "Destaque"
+          finalidade: "comprar"                    // "alugar" mostra "/mês" no preço
+        }
+      ],
+      document.getElementById("lista-imoveis")
+    );
+  });
+</script>
+```
+
+O coração do card salva os favoritos no navegador e atualiza o contador do header automaticamente.
+
+### 4. Cards de categoria (estilo de vida)
+
+```js
+var card = LarCerto.criarCategoria({
+  icone: "mar",               // mar | natureza | urbana | office | familia
+  titulo: "Perto do Mar",
+  texto: "Viver com a brisa",
+  href: "../filtros/index.html"
+});
+document.getElementById("categorias").appendChild(card);
+```
+
+### 5. Modal
+
+```js
+LarCerto.abrirModal({ titulo: "Agendar visita", conteudo: "Texto do modal" });
+LarCerto.fecharModal(); // também fecha com ESC ou clicando fora
+```
+
+### 6. Botões, chips e selo (só HTML + classes)
+
+```html
+<button class="lc-btn lc-btn--primary">Buscar Imóveis</button>
+<button class="lc-btn lc-btn--dark">Aplicar Filtros</button>
+<button class="lc-btn lc-btn--whatsapp">Fale pelo WhatsApp</button>
+<button class="lc-btn lc-btn--outline">Google</button>
+
+<button class="lc-chip is-active">Todos (3)</button>
+<button class="lc-chip">Casas (2)</button>
+
+<span class="lc-badge">Destaque</span>
+```
+
+Outras classes úteis: `lc-btn--block` (largura total), `lc-btn--pill` (arredondado), `lc-container` (centraliza o conteúdo) e `lc-grid-cards` (grade responsiva de cards).

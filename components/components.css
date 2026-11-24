@@ -52,7 +52,6 @@
   display: none !important;
 }
 
-*/
 .lc-btn {
   display: inline-flex;
   align-items: center;
@@ -111,7 +110,8 @@
   transition: background-color 0.2s;
 }
 .lc-icon-btn:hover { background: rgba(0, 0, 0, 0.07); }
-.lc-icon-btn svg { width: 24px; height: 24px; }
+.lc-icon-btn svg,
+.lc-icon-btn img { width: 24px; height: 24px; }
 
 .lc-count {
   position: absolute;
@@ -189,14 +189,8 @@
   color: var(--lc-text);
   text-decoration: none;
 }
-.lc-logo__mark { width: 28px; height: 36px; flex: none; }
-.lc-logo__text {
-  font: 300 26px/1 var(--lc-font-sans);
-  letter-spacing: 0.02em;
-}
-.lc-logo__text b { font-weight: 800; }
-.lc-logo--sm .lc-logo__mark { width: 22px; height: 28px; }
-.lc-logo--sm .lc-logo__text { font-size: 23px; }
+.lc-logo__img { display: block; height: 40px; width: auto; }
+.lc-logo--sm .lc-logo__img { height: 32px; }
 
 
 .lc-nav {
@@ -418,17 +412,16 @@
   cursor: pointer;
 }
 .lc-card__fav { top: 8px; right: 8px; color: #fff; }
-.lc-card__fav svg {
-  width: 26px;
-  height: 26px;
-  fill: transparent;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
-  transition: transform 0.15s, fill 0.15s;
+.lc-card__fav img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+  transition: transform 0.15s;
 }
-.lc-card__fav:hover svg { transform: scale(1.12); }
-.lc-card__fav[aria-pressed="true"] svg { fill: currentColor; }
+.lc-card__fav:hover img { transform: scale(1.12); }
+.lc-card__fav .lc-fav-cheio,
+.lc-card__fav[aria-pressed="true"] .lc-fav-vazio { display: none; }
+.lc-card__fav[aria-pressed="true"] .lc-fav-cheio { display: block; }
 
 .lc-card__share {
   right: 12px;
