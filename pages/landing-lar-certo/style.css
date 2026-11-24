@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  background: var(--lc-bg);
+  font-family: var(--lc-font-sans);
+  color: var(--lc-text);
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 929px;
+  padding: 0 24px 54px;
+  box-sizing: border-box;
+  color: #fff;
+  overflow: hidden;
+  background: #3b4a52 url("../../assets/images/hero-lar-certo.jpg") center / cover no-repeat;
+}
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Escurece o vídeo para o texto ficar legível */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35));
+}
+
+.hero__conteudo,
+.busca {
+  position: relative;
+}
+
+.hero__conteudo {
+  margin-top: 260px;
+  max-width: 1280px;
+  width: 100%;
+  margin-inline: auto;
+  padding-top: 0;
+}
+
+.hero__titulo {
+  margin: 0 0 32px;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.hero__subtitulo {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.4;
+}
+
+.busca {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1278px;
+  margin: 0 auto;
+  padding: 30px 28px;
+  box-sizing: border-box;
+  border-radius: 24px;
+  background: #fff;
+  color: var(--lc-text);
+}
+
+.busca__campo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--lc-border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.busca__campo:focus-within {
+  border-color: var(--lc-text);
+}
+
+.busca__icone {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  flex: none;
+  color: var(--lc-text-muted);
+}
+
+.busca__campo input,
+.busca__campo select {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  font: 400 16px var(--lc-font-sans);
+  color: var(--lc-text-muted);
+  outline: none;
+}
+
+.busca__campo select {
+  cursor: pointer;
+}
+
+.busca__rotulo {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  padding: 0 4px;
+  background: #fff;
+  font-size: 10px;
+  color: var(--lc-text-muted);
+}
+
+.busca__botao {
+  height: 46px;
+  min-width: 265px;
+  border-radius: 6px;
+}
+
+.secao {
+  padding-top: 48px;
+  padding-bottom: 16px;
+}
+
+.secao__titulo {
+  margin: 0 0 40px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+#destaques {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+
+@media (max-width: 1000px) {
+  .busca {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .busca__botao {
+    grid-column: 1 / -1;
+  }
+  .categorias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #destaques {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 780px;
+    padding-bottom: 24px;
+  }
+  .hero__conteudo {
+    margin-top: 160px;
+  }
+  .busca {
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
+  }
+  .categorias,
+  #destaques {
+    grid-template-columns: 1fr;
+  }
+}

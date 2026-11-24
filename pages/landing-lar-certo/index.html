@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lar Certo | Encontre um lugar que tenha a sua cara</title>
+
+    <link rel="stylesheet" href="../../components/components.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../../components/components.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div data-component="header" data-overlay="true"></div>
+
+    <main>
+        <section class="hero">
+            <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="../../assets/images/hero-lar-certo.jpg" aria-hidden="true">
+                <source src="../../assets/videos/hero-lar-certo.mp4" type="video/mp4">
+            </video>
+
+            <div class="hero__conteudo">
+                <h1 class="hero__titulo">Encontre um lugar<br>que tenha a sua cara</h1>
+                <p class="hero__subtitulo">Imóveis selecionados para<br>cada momento da sua vida</p>
+            </div>
+
+            <form class="busca" id="form-busca">
+                <div class="busca__campo busca__campo--texto">
+                    <svg class="busca__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>
+                    </svg>
+                    <input type="text" name="busca" placeholder="Cidade, estado ou região" aria-label="Cidade, estado ou região">
+                </div>
+
+                <label class="busca__campo busca__campo--select">
+                    <span class="busca__rotulo">Tipo de Imóveis</span>
+                    <select name="tipo">
+                        <option value="">Todos os tipos</option>
+                        <option value="casa">Casa</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="cobertura">Cobertura</option>
+                        <option value="terreno">Terreno</option>
+                        <option value="comercial">Comercial</option>
+                    </select>
+                </label>
+
+                <label class="busca__campo busca__campo--select">
+                    <span class="busca__rotulo">Quartos</span>
+                    <select name="quartos">
+                        <option value="">Qualquer</option>
+                        <option value="1">1+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                    </select>
+                </label>
+
+                <button class="lc-btn lc-btn--primary busca__botao" type="submit">Buscar Imóveis</button>
+            </form>
+        </section>
+
+        <section class="secao lc-container">
+            <h2 class="secao__titulo">Encontre pelo seu estilo de vida!</h2>
+            <div class="categorias" id="categorias"></div>
+        </section>
+
+        <section class="secao lc-container">
+            <h2 class="secao__titulo">Imóveis em Destaque</h2>
+            <div class="lc-grid-cards" id="destaques"></div>
+        </section>
+    </main>
+
+    <div data-component="footer"></div>
+</body>
+</html>
