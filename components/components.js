@@ -73,7 +73,7 @@
       '<header class="lc-header"' +
       (opcoes.overlay === "true" ? ' data-overlay="true"' : "") + ">" +
       '<div class="lc-header__inner">' +
-      '<a class="lc-logo" href="' + url("pages/home/index.html") + '" aria-label="Lar Certo">' + LOGO + "</a>" +
+      '<a class="lc-logo" href="' + url("pages/landing-lar-certo/index.html") + '" aria-label="Lar Certo">' + LOGO + "</a>" +
       '<nav class="lc-nav" id="lc-nav">' + links + "</nav>" +
       '<div class="lc-header__actions">' +
       '<a class="lc-icon-btn" href="' + url("pages/favoritos/index.html") + '" aria-label="Favoritos">' +
@@ -101,7 +101,7 @@
     return (
       '<footer class="lc-footer"><div class="lc-container">' +
       '<div class="lc-footer__top">' +
-      '<a class="lc-logo lc-logo--sm" href="' + url("pages/home/index.html") + '" aria-label="Lar Certo">' + LOGO + "</a>" +
+      '<a class="lc-logo lc-logo--sm" href="' + url("pages/landing-lar-certo/index.html") + '" aria-label="Lar Certo">' + LOGO + "</a>" +
       '<ul class="lc-footer__nav">' +
       LINKS.map(function (l) {
         return '<li><a href="' + url(l[2]) + '">' + l[1] + "</a></li>";
