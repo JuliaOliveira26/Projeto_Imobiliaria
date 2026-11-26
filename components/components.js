@@ -124,12 +124,13 @@
     var local = [imovel.cidade, imovel.uf].filter(Boolean).join(" - ");
     var link = url("pages/detalhes-imovel/index.html?id=" + encodeURIComponent(imovel.id));
     var id = String(imovel.id);
+    var imagem = /^assets\//.test(imovel.imagem || "") ? url(imovel.imagem) : imovel.imagem;
 
     var el = document.createElement("article");
     el.className = "lc-card";
     el.innerHTML =
       '<div class="lc-card__media">' +
-      (imovel.imagem ? '<img src="' + esc(imovel.imagem) + '" alt="' + esc(imovel.titulo) + '" loading="lazy">' : "") +
+      (imagem ? '<img src="' + esc(imagem) + '" alt="' + esc(imovel.titulo) + '" loading="lazy">' : "") +
       (imovel.destaque ? '<span class="lc-badge">Destaque</span>' : "") +
       "</div>" +
       '<button class="lc-card__fav" type="button" aria-label="Favoritar imóvel">' +
@@ -151,10 +152,31 @@
     }
     marcar();
     botao.addEventListener("click", function () {
-      alternarFavorito(id);
+      var adicionou = alternarFavorito(id);
       marcar();
+      mostrarToast(adicionou ? "Adicionado aos favoritos" : "Removido dos favoritos");
     });
     return el;
+  }
+
+  var toastTimer = null;
+  function mostrarToast(mensagem) {
+    var toast = document.querySelector(".lc-toast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.className = "lc-toast";
+      toast.setAttribute("role", "status");
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = icone("basil--heart-outline") + "<span></span>";
+    toast.querySelector("span").textContent = mensagem;
+    toast.classList.remove("is-visible");
+    void toast.offsetWidth;
+    toast.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toast.classList.remove("is-visible");
+    }, 2500);
   }
 
   function renderCards(imoveis, container) {
@@ -223,6 +245,7 @@
     renderCards: renderCards,
     criarCard: criarCard,
     criarCategoria: criarCategoria,
+    mostrarToast: mostrarToast,
     abrirModal: abrirModal,
     fecharModal: fecharModal,
     favoritos: { lista: listaFavoritos, alternar: alternarFavorito },

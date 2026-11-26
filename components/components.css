@@ -588,3 +588,31 @@ body.lc-modal-open { overflow: hidden; }
   .lc-card,
   .lc-categoria { transition: none; }
 }
+
+/* ---------- Toast ---------- */
+.lc-toast {
+  position: fixed;
+  top: 150px;
+  right: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 80px 28px 28px;
+  background: #fff;
+  box-shadow: var(--lc-shadow-lg);
+  font: 400 16px var(--lc-font-sans);
+  color: var(--lc-text);
+  transform: translateX(110%);
+  transition: transform 0.3s ease;
+}
+.lc-toast.is-visible { transform: translateX(0); }
+.lc-toast img {
+  width: 40px;
+  height: 40px;
+  /* laranja do design */
+  filter: invert(36%) sepia(80%) saturate(2200%) hue-rotate(345deg);
+}
+@media (max-width: 640px) {
+  .lc-toast { top: auto; bottom: 16px; padding: 16px 32px 16px 16px; gap: 12px; }
+}
