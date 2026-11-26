@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imóveis | Lar Certo</title>
+
+    <link rel="stylesheet" href="../../components/components.css">
+    <link rel="stylesheet" href="../../shared/css/listagem.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../../components/components.js" defer></script>
+    <script src="../../shared/data/imoveis.js" defer></script>
+    <script src="../../shared/js/filtros-painel.js" defer></script>
+    <script src="../../shared/js/listagem.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div data-component="header" data-active="imoveis"></div>
+
+    <main class="listagem" id="listagem">
+        <aside class="listagem__painel" id="painel-filtros" aria-label="Filtros"></aside>
+
+        <section class="listagem__resultados">
+            <div class="listagem__barra">
+                <form class="barra-busca" id="form-busca" role="search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>
+                    </svg>
+                    <input type="search" id="campo-busca" placeholder="Cidade, estado ou região" aria-label="Cidade, estado ou região">
+                </form>
+
+                <button class="barra-botao" type="button" id="btn-filtros" aria-expanded="true" aria-controls="painel-filtros">
+                    <img src="../../assets/icons/bi--filter.svg" alt="">
+                    Filtros
+                </button>
+
+                <a class="barra-botao" id="link-alternar" data-destino="../filtros-mapa/index.html" href="../filtros-mapa/index.html">
+                    <img src="../../assets/icons/oui--nav-maps.svg" alt="">
+                    Ver mapa
+                </a>
+            </div>
+
+            <p class="listagem__contagem" id="contagem" aria-live="polite"></p>
+
+            <div class="lc-grid-cards" id="lista-imoveis"></div>
+            <p class="listagem__vazio" id="vazio" hidden>Nenhum imóvel encontrado. Tente ajustar os filtros.</p>
+        </section>
+    </main>
+
+    <div data-component="footer"></div>
+</body>
+</html>

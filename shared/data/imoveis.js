@@ -1,0 +1,23 @@
+var IMOVEIS = [
+  { id: 1, titulo: "Casa em condomínio lote 1", tipo: "casa", finalidade: "comprar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 850000, area: 126, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/imoveis/comprar-1.jpg" },
+  { id: 2, titulo: "Casa em condomínio lote 2", tipo: "casa", finalidade: "comprar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 750000, area: 126, quartos: 2, banheiros: 2, vagas: 1, imagem: "assets/images/imoveis/comprar-2.jpg" },
+  { id: 3, titulo: "Casa em condomínio  lote 3", tipo: "casa", finalidade: "comprar", bairro: "Trindade", cidade: "Florianópolis", uf: "SC", preco: 850000, area: 126, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/imoveis/comprar-3.jpg" },
+  { id: 4, titulo: "Casa em condomínio lote 4", tipo: "casa", finalidade: "comprar", bairro: "Carvoeira", cidade: "Florianópolis", uf: "SC", preco: 950000, area: 126, quartos: 4, banheiros: 3, vagas: 2, imagem: "assets/images/imoveis/comprar-4.jpg", destaque: true },
+  { id: 5, titulo: "Casa em condomínio lote 5", tipo: "casa", finalidade: "comprar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 850000, area: 126, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/imoveis/comprar-5.jpg" },
+  { id: 6, titulo: "Casa em condomínio lote 6", tipo: "casa", finalidade: "comprar", bairro: "Caloninha", cidade: "Florianópolis", uf: "SC", preco: 750000, area: 126, quartos: 2, banheiros: 2, vagas: 1, imagem: "assets/images/imoveis/comprar-6.jpg" },
+  { id: 7, titulo: "Apartamento", tipo: "apartamento", finalidade: "comprar", bairro: "Agronômica", cidade: "Florianópolis", uf: "SC", preco: 890000, area: 98, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/imoveis/alugar-4.jpg" },
+  { id: 8, titulo: "Cobertura", tipo: "cobertura", finalidade: "comprar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 1450000, area: 210, quartos: 4, banheiros: 3, vagas: 3, imagem: "assets/images/imoveis/alugar-6.jpg" },
+  { id: 9, titulo: "Terreno", tipo: "terreno", finalidade: "comprar", bairro: "Ingleses", cidade: "Florianópolis", uf: "SC", preco: 450000, area: 360, quartos: 0, banheiros: 0, vagas: 0, imagem: "assets/images/hero-lar-certo.jpg" },
+  { id: 10, titulo: "Sala comercial", tipo: "comercial", finalidade: "comprar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 600000, area: 80, quartos: 0, banheiros: 1, vagas: 1, imagem: "assets/images/imoveis/alugar-5.jpg" },
+
+  { id: 11, titulo: "Apartamento", tipo: "apartamento", finalidade: "alugar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 3200, area: 126, quartos: 2, banheiros: 2, vagas: 1, imagem: "assets/images/imoveis/alugar-1.jpg" },
+  { id: 12, titulo: "Casa com piscina", tipo: "casa", finalidade: "alugar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 7000, area: 126, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/imoveis/alugar-2.jpg" },
+  { id: 13, titulo: "Apartamento", tipo: "apartamento", finalidade: "alugar", bairro: "Carvoeira", cidade: "Florianópolis", uf: "SC", preco: 5500, area: 126, quartos: 4, banheiros: 3, vagas: 2, imagem: "assets/images/imoveis/alugar-3.jpg", destaque: true },
+  { id: 14, titulo: "Apartamento", tipo: "apartamento", finalidade: "alugar", bairro: "Trindade", cidade: "Florianópolis", uf: "SC", preco: 4500, area: 126, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/imoveis/alugar-4.jpg" },
+  { id: 15, titulo: "Apartamento", tipo: "apartamento", finalidade: "alugar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 5700, area: 126, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/imoveis/alugar-5.jpg" },
+  { id: 16, titulo: "Cobertura", tipo: "cobertura", finalidade: "alugar", bairro: "Caloninha", cidade: "Florianópolis", uf: "SC", preco: 6000, area: 126, quartos: 2, banheiros: 2, vagas: 1, imagem: "assets/images/imoveis/alugar-6.jpg" },
+
+  { id: 17, titulo: "Casa em condomínio", tipo: "casa", finalidade: "comprar", bairro: "Centro", cidade: "Florianópolis", uf: "SC", preco: 850000, area: 126, quartos: 3, banheiros: 2, vagas: 2, imagem: "assets/images/casa-1.jpg", vitrine: true },
+  { id: 18, titulo: "Casa em condomínio lote 1", tipo: "casa", finalidade: "comprar", bairro: "Centro", cidade: "Joinville", uf: "SC", preco: 950000, area: 126, quartos: 4, banheiros: 3, vagas: 2, imagem: "assets/images/casa-2.jpg", destaque: true, vitrine: true },
+  { id: 19, titulo: "Casa em condomínio", tipo: "casa", finalidade: "comprar", bairro: "Centro", cidade: "Curitiba", uf: "PR", preco: 750000, area: 126, quartos: 2, banheiros: 2, vagas: 1, imagem: "assets/images/casa-3.jpg", vitrine: true },
+];
