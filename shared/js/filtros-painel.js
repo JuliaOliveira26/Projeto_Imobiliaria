@@ -222,6 +222,7 @@ var FiltrosImoveis = (function () {
         marcarFinalidade();
         configurarFaixa(null, null);
         contarTipos();
+        aoAplicar(ler());
       } else if (botao.dataset.passo) {
         var campo = botao.closest("[data-stepper]").dataset.stepper;
         valores[campo] = Math.max(0, Math.min(10, valores[campo] + Number(botao.dataset.passo)));

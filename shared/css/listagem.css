@@ -114,8 +114,8 @@ body {
 .painel {
   padding: 24px 20px 28px;
   border-radius: 24px;
-  background: #bdbcb7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  background: var(--lc-header-pill);
+  box-shadow: var(--lc-shadow);
   font-size: 13px;
 }
 
@@ -136,7 +136,7 @@ body {
   padding: 0;
   border: 0;
   background: none;
-  color: #8a8a86;
+  color: var(--lc-text-muted);
   font: 400 14px var(--lc-font-sans);
   cursor: pointer;
 }

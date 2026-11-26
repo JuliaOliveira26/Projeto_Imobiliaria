@@ -226,6 +226,9 @@
   gap: 8px;
 }
 .lc-account {
+  border: 0;
+  background: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -589,30 +592,73 @@ body.lc-modal-open { overflow: hidden; }
   .lc-categoria { transition: none; }
 }
 
-/* ---------- Toast ---------- */
 .lc-toast {
   position: fixed;
-  top: 150px;
-  right: 0;
+  right: 32px;
+  bottom: 32px;
   z-index: 1100;
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 28px 80px 28px 28px;
+  gap: 16px;
+  padding: 16px 28px 16px 20px;
+  border-radius: 16px;
   background: #fff;
   box-shadow: var(--lc-shadow-lg);
-  font: 400 16px var(--lc-font-sans);
+  font: 500 15px var(--lc-font-sans);
   color: var(--lc-text);
-  transform: translateX(110%);
-  transition: transform 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.lc-toast.is-visible { transform: translateX(0); }
+.lc-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .lc-toast img {
-  width: 40px;
-  height: 40px;
-  /* laranja do design */
+  width: 32px;
+  height: 32px;
   filter: invert(36%) sepia(80%) saturate(2200%) hue-rotate(345deg);
 }
 @media (max-width: 640px) {
-  .lc-toast { top: auto; bottom: 16px; padding: 16px 32px 16px 16px; gap: 12px; }
+  .lc-toast { right: 16px; left: 16px; bottom: 16px; }
 }
+
+.lc-conta { position: relative; }
+.lc-account__avatar--inicial {
+  background: var(--lc-gold);
+  font: 700 16px var(--lc-font-sans);
+}
+.lc-conta__menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 10;
+  display: grid;
+  min-width: 220px;
+  padding: 8px;
+  border-radius: var(--lc-radius);
+  background: #fff;
+  box-shadow: var(--lc-shadow-lg);
+}
+.lc-conta__email {
+  margin: 0;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--lc-border);
+  color: var(--lc-text-muted);
+  font-size: 13px;
+}
+.lc-conta__menu a,
+.lc-conta__menu button {
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--lc-text);
+  font: 500 15px var(--lc-font-sans);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.lc-conta__menu a:hover,
+.lc-conta__menu button:hover { background: var(--lc-bg); }

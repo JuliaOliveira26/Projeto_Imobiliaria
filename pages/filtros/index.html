@@ -14,10 +14,10 @@
     <script src="../../shared/js/listagem.js" defer></script>
     <script src="script.js" defer></script>
 </head>
-<body>
-    <div data-component="header" data-active="imoveis"></div>
+<body data-requer-login>
+    <div data-component="header" data-active="comprar"></div>
 
-    <main class="listagem" id="listagem">
+    <main class="listagem" id="listagem" data-menu="finalidade">
         <aside class="listagem__painel" id="painel-filtros" aria-label="Filtros"></aside>
 
         <section class="listagem__resultados">
