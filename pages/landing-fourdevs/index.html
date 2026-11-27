@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fourdevs — Especialistas em Soluções Digitais</title>
+  <meta name="description" content="Transformamos ideias em experiências funcionais relevantes pensadas para gerar valor. Conheça a fourdevs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400&family=Anek+Malayalam:wght@300;400;500;600;700&family=Architects+Daughter&family=Inter:wght@300;400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero" id="inicio">
+    <div class="hero__topbar">
+      <p class="hero__tagline">especialistas em <strong>soluções digitais</strong>, somos a <strong>tecnologia</strong></p>
+      <nav class="hero__nav" aria-label="Navegação principal">
+        <a href="#inicio" class="hero__nav-link is-active">Início</a>
+        <a href="#historia" class="hero__nav-link">História</a>
+        <a href="#objetivo" class="hero__nav-link">Objetivo</a>
+        <a href="#abordagem" class="hero__nav-link">Abordagem</a>
+        <a href="#projetos" class="hero__nav-link">Projetos</a>
+        <a href="#contato" class="hero__nav-link">Contato</a>
+      </nav>
+      <button type="button" class="hero__menu-btn" id="openMenuBtn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobileDrawer">
+        <img src="assets/menu-hamburger.svg" alt="" width="25" height="17">
+      </button>
+    </div>
+
+    <h1 class="hero__wordmark">fourdevs</h1>
+    <img src="assets/fourdevs-logo-mobile.png" alt="fourdevs" class="hero__wordmark-mobile">
+
+    <div class="hero__card-desktop">
+      <div class="hero__card-visual">
+        <img src="assets/hero-wave.png" alt="" class="hero__wave-img">
+        <div class="hero__wave-fade" aria-hidden="true"></div>
+      </div>
+      <div class="hero__card-copy">
+        <p class="hero__statement hero__statement--top">transformamos ideias em <strong>experiências funcionais</strong></p>
+        <p class="hero__statement hero__statement--bottom"><strong>relevantes</strong> pensadas para gerar <strong>valor.</strong></p>
+      </div>
+    </div>
+
+    <div class="hero__card-mobile">
+      <img src="assets/hero-wave-mobile.png" alt="" class="hero__mobile-wave">
+      <div class="hero__mobile-statement-card">
+        <p>transformamos ideias em <strong>experiências funcionais</strong><br><strong>relevantes</strong> pensadas para gerar <strong>valor</strong>.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Menu mobile" aria-hidden="true">
+    <button type="button" class="mobile-drawer__close" id="closeMenuBtn" aria-label="Fechar menu">&times;</button>
+    <nav class="mobile-drawer__nav">
+      <a href="#inicio" class="mobile-drawer__link">Início</a>
+      <a href="#historia" class="mobile-drawer__link">História</a>
+      <a href="#objetivo" class="mobile-drawer__link">Objetivo</a>
+      <a href="#abordagem" class="mobile-drawer__link">Abordagem</a>
+      <a href="#projetos" class="mobile-drawer__link">Projetos</a>
+      <a href="#contato" class="mobile-drawer__link">Contato</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="historia" id="historia">
+      <div class="historia__container">
+        <div>
+          <h2 class="historia__title">
+            Nossa história começou em 2026, em um trabalho da faculdade na disciplina de
+            <span class="historia__highlight">
+              UI &amp; UX.
+              <img src="assets/historia-underline.png" alt="" class="historia__circle" aria-hidden="true">
+            </span>
+          </h2>
+          <div class="historia__body">
+            <p>Começamos com uma ideia simples: transformar um projeto acadêmico em algo que pudesse gerar impacto fora da faculdade. A partir dali, passamos a desenvolver soluções digitais com foco em design, tecnologia e experiência do usuário, sempre buscando criar projetos funcionais, atuais e relevantes.</p>
+            <p>Desde então, temos explorado diferentes áreas, desenvolvido novos projetos e acumulado aprendizados práticos a cada desafio. Hoje, usamos essa experiência para criar soluções digitais, aprimorar ideias e construir produtos que combinem estratégia, criatividade e tecnologia.</p>
+          </div>
+        </div>
+
+        <figure class="polaroid">
+          <div class="polaroid__photo-frame">
+            <img src="assets/historia-polaroid.png" alt="Prédio arquitetônico em preto e branco" class="polaroid__img">
+          </div>
+          <figcaption class="polaroid__caption">200 West street, june 2012</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="fundadores" id="fundadores">
+      <div class="fundadores__desktop">
+        <img src="assets/equipe-grupo.png" alt="Fundadores da fourdevs: Evelyn, Priscila, Dalton e Julia" class="fundadores__bg">
+        <div class="fundadores__heading-wrap">
+          <h2 class="fundadores__title">fundadores parceiros</h2>
+          <img src="assets/fundadores-underline.png" alt="" class="fundadores__underline" aria-hidden="true">
+        </div>
+
+        <button type="button" class="founder-badge founder-badge--evelyn" data-founder="evelyn" aria-label="Conheça Evelyn Da Silva">
+          <span class="founder-badge__label">conheça Evelyn</span>
+          <img src="assets/badge-plus.svg" alt="" class="founder-badge__plus" width="50" height="50" aria-hidden="true">
+        </button>
+
+        <button type="button" class="founder-badge founder-badge--priscila" data-founder="priscila" aria-label="Conheça Priscila da Costa">
+          <span class="founder-badge__label">conheça Priscila</span>
+          <img src="assets/badge-plus.svg" alt="" class="founder-badge__plus" width="50" height="50" aria-hidden="true">
+        </button>
+
+        <button type="button" class="founder-badge founder-badge--dalton" data-founder="dalton" aria-label="Conheça Dalton de Souza">
+          <img src="assets/badge-plus.svg" alt="" class="founder-badge__plus" width="50" height="50" aria-hidden="true">
+          <span class="founder-badge__label">conheça Dalton</span>
+        </button>
+
+        <button type="button" class="founder-badge founder-badge--julia" data-founder="julia" aria-label="Conheça Julia Alves">
+          <img src="assets/badge-plus.svg" alt="" class="founder-badge__plus" width="50" height="50" aria-hidden="true">
+          <span class="founder-badge__label">conheça Julia</span>
+        </button>
+      </div>
+
+      <div class="fundadores__mobile">
+        <div class="fundadores__heading-wrap fundadores__heading-wrap--mobile">
+          <h2 class="fundadores__title">fundadores parceiros</h2>
+          <img src="assets/fundadores-underline.png" alt="" class="fundadores__underline" aria-hidden="true">
+        </div>
+
+        <article class="founder-card" data-founder="dalton">
+          <div class="founder-card__photo-wrap">
+            <img src="assets/fundador-dalton.png" alt="Dalton de Souza" class="founder-card__photo">
+          </div>
+          <div class="founder-card__content">
+            <h3 class="founder-card__name">Dalton de Souza</h3>
+            <p class="founder-card__role">CTO &amp; Fundador</p>
+            <p class="founder-card__bio">Dalton atua na conexão entre tecnologia, produto e experiência digital, com foco na criação de interfaces funcionais, intuitivas e visualmente consistentes. Como cofundador, participa da definição da identidade dos projetos, estruturação das páginas e construção da experiência visual das soluções desenvolvidas pela equipe. Seu trabalho combina UI/UX, visão de produto e tecnologia, buscando transformar ideias em experiências digitais claras, modernas e relevantes. Também contribui na prototipação e evolução das interfaces, garantindo maior coerência entre estética, usabilidade e propósito.</p>
+          </div>
+        </article>
+
+        <article class="founder-card" data-founder="julia">
+          <div class="founder-card__photo-wrap">
+            <img src="assets/fundador-julia.png" alt="Julia Alves" class="founder-card__photo">
+          </div>
+          <div class="founder-card__content">
+            <h3 class="founder-card__name">Julia Alves</h3>
+            <p class="founder-card__role">CTO &amp; Fundadora</p>
+            <p class="founder-card__bio">Julia atua na interseção entre tecnologia, produto e desenvolvimento de soluções digitais. Como cofundadora, participa da definição de como ideias se transformam em experiências funcionais, conectando visão de produto, estratégia e execução técnica. Seu interesse está em construir soluções simples, escaláveis e bem estruturadas, sempre buscando equilibrar desempenho, usabilidade e clareza. Ao longo dos projetos, também se envolve na organização de processos, validação de ideias e evolução das experiências digitais criadas pela equipe.</p>
+          </div>
+        </article>
+
+        <article class="founder-card" data-founder="priscila">
+          <div class="founder-card__photo-wrap">
+            <img src="assets/fundador-priscila.png" alt="Priscila da Costa" class="founder-card__photo">
+          </div>
+          <div class="founder-card__content">
+            <h3 class="founder-card__name">Priscila da Costa</h3>
+            <p class="founder-card__role">CTO &amp; Fundadora</p>
+            <p class="founder-card__bio">Priscila combina pensamento estratégico, tecnologia e experiência do usuário para transformar conceitos em produtos digitais mais claros, intuitivos e eficientes. Como cofundadora, contribui para decisões de produto, estruturação de projetos e definição de experiências que façam sentido para quem utiliza a solução. Seu foco está em aproximar tecnologia e design, buscando interfaces mais acessíveis, fluxos mais simples e produtos capazes de resolver problemas de forma prática. Também participa da evolução das ideias desde os primeiros esboços até versões mais consistentes e funcionais.</p>
+          </div>
+        </article>
+
+        <article class="founder-card" data-founder="evelyn">
+          <div class="founder-card__photo-wrap">
+            <img src="assets/fundador-evelyn.png" alt="Evelyn Da Silva" class="founder-card__photo">
+          </div>
+          <div class="founder-card__content">
+            <h3 class="founder-card__name">Evelyn Da Silva</h3>
+            <p class="founder-card__role">CTO &amp; Fundadora</p>
+            <p class="founder-card__bio">Evelyn explora novas possibilidades em software, automação e inteligência artificial para desenvolver soluções digitais mais inteligentes e adaptáveis. Como cofundadora, atua na experimentação de tecnologias, desenvolvimento de ideias e construção de experiências que conectam inovação a aplicações práticas. Seu interesse está em entender como diferentes ferramentas podem ser combinadas para otimizar processos, melhorar produtos e criar novas formas de interação. Dentro da equipe, contribui principalmente com uma visão voltada para inovação, tecnologia emergente e evolução contínua das soluções.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="objetivo" id="objetivo">
+      <div class="objetivo__container">
+        <span class="section-eyebrow">OBJETIVO</span>
+        <p class="objetivo__lead">construímos parcerias duradouras que impulsionam a inovação, o crescimento e a geração de valor sustentável.</p>
+
+        <div class="accordion" id="objetivoAccordion">
+          <div class="accordion__item">
+            <button type="button" class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__number">01</span>
+              <span class="accordion__question">“ideias boas precisam virar experiências reais.”</span>
+              <img src="assets/plus-icon.svg" alt="" class="accordion__icon" width="25" height="25" aria-hidden="true">
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Tiramos projetos do papel com foco em entrega prática: prototipamos, validamos fluxos e transformamos conceitos em interfaces reais que resolvem dores concretas dos usuários.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button type="button" class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__number">02</span>
+              <span class="accordion__question">“criamos juntos, testamos rápido e evoluímos sempre.”</span>
+              <img src="assets/plus-icon.svg" alt="" class="accordion__icon" width="25" height="25" aria-hidden="true">
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Trabalhamos em ciclos colaborativos curtos, ouvindo feedbacks reais para ajustar design e código com agilidade até alcançar a melhor versão do produto.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button type="button" class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__number">03</span>
+              <span class="accordion__question">“cada detalhe deve ter um motivo para existir.”</span>
+              <img src="assets/plus-icon.svg" alt="" class="accordion__icon" width="25" height="25" aria-hidden="true">
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Do espaçamento de um botão à arquitetura de informação, cada decisão visual e técnica existe para dar clareza, reduzir atrito e fortalecer a identidade da marca.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button type="button" class="accordion__trigger" aria-expanded="false">
+              <span class="accordion__number">04</span>
+              <span class="accordion__question">“inovação só faz sentido quando gera impacto.”</span>
+              <img src="assets/plus-icon.svg" alt="" class="accordion__icon" width="25" height="25" aria-hidden="true">
+            </button>
+            <div class="accordion__panel" hidden>
+              <p>Combinamos tecnologia, automação e estratégia para construir soluções mensuráveis que economizam tempo, melhoram a experiência do cliente e sustentam o crescimento no longo prazo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="abordagem" id="abordagem">
+      <div class="abordagem__text-col">
+        <span class="section-eyebrow">ABORDAGEM</span>
+        <h2 class="abordagem__title">Desbloqueando valor<br>por meio da nossa<br>fórmula "fourdevs"</h2>
+        <p class="abordagem__body">Nossa abordagem concentra-se em criar soluções digitais que resolvem problemas reais e impulsionam o crescimento dos negócios. Desenvolvemos softwares sob medida combinando tecnologia, estratégia e experiência do usuário para transformar processos, aumentar a eficiência e gerar valor de forma escalável.</p>
+      </div>
+      <div class="abordagem__board-col">
+        <img src="assets/formula-quadro.png" alt="A fórmula do fourdevs: software sob medida + IA, produto + automação + execução (UX + sistemas) = geração de valor" class="abordagem__board-img">
+      </div>
+    </section>
+
+    <section class="projetos" id="projetos">
+      <div class="projetos__container">
+        <h2 class="projetos__heading">PROJETOS</h2>
+
+        <div class="macbook-showcase projetos__desktop">
+          <img src="assets/macbook-frame.png" alt="Notebook exibindo o projeto Lar Certo" class="macbook-showcase__frame">
+          <a href="../landing-lar-certo/index.html" class="macbook-showcase__screen" title="Abrir projeto Lar Certo">
+            <img src="assets/projeto-lar-certo-tela.png" alt="Interface do site Lar Certo — Encontre um lugar que tenha a sua cara" class="macbook-showcase__screen-img">
+            <span class="macbook-showcase__overlay">
+              <span class="macbook-showcase__cta">Acessar Lar Certo &rarr;</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="projetos__mobile">
+          <a href="../landing-lar-certo/index.html" class="project-card project-card--link">
+            <img src="assets/logo-lar-certo.png" alt="Logo Lar Certo" class="project-card__logo-lar">
+            <h3 class="project-card__title">Lar Certo Real Estate Company</h3>
+            <p class="project-card__desc">Uma imobiliária digital focada em conectar pessoas a imóveis que combinam localização, funcionalidade e qualidade de vida. Unimos tecnologia, curadoria e uma experiência simples para tornar a busca por um novo espaço mais clara, eficiente e confiável.</p>
+          </a>
+
+          <article class="project-card">
+            <div class="project-card__top-row">
+              <img src="assets/logo-quinteto.png" alt="Logo Quinteto Devs" class="project-card__logo-quinteto">
+              <img src="assets/badge-construindo.png" alt="Em construção" class="project-card__badge-construindo">
+            </div>
+            <h3 class="project-card__title">Quinteto Devs</h3>
+            <p class="project-card__desc">A próxima evolução do FourDevs. Um projeto pensado para ampliar ideias, experiências e possibilidades, reunindo estudantes de Engenharia de Software em uma nova fase de criação.</p>
+            <p class="project-card__desc">O Quinteto Devs nasce como uma versão 2.0 do que começou na faculdade, com foco em desenvolver soluções digitais mais completas, explorar novas tecnologias e transformar aprendizado em projetos com potencial real de crescimento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contato" id="contato">
+      <div class="contato__info">
+        <h2 class="contato__eyebrow">ENTRE EM CONTATO CONOSCO</h2>
+        <p class="contato__lead">Se você está procurando um parceiro como nós, vamos conversar!</p>
+        <p class="contato__footnote">uma parceria formada por desenvolvedores e empreendedores que constroem, expandem e investem em ativos de excelência com foco no longo prazo.</p>
+      </div>
+
+      <div class="contato__form-col">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="contact-form__grid">
+            <label class="sr-only" for="primeiroNome">Primeiro nome</label>
+            <input type="text" id="primeiroNome" name="primeiroNome" class="contact-form__input" placeholder="primeiro nome" required>
+
+            <label class="sr-only" for="ultimoNome">Último nome</label>
+            <input type="text" id="ultimoNome" name="ultimoNome" class="contact-form__input" placeholder="último nome" required>
+
+            <label class="sr-only" for="email">E-mail</label>
+            <input type="email" id="email" name="email" class="contact-form__input" placeholder="email" required>
+
+            <label class="sr-only" for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" class="contact-form__input" placeholder="telefone">
+          </div>
+
+          <label class="sr-only" for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" class="contact-form__textarea" placeholder="mensagem"></textarea>
+
+          <p class="contact-form__terms">Ao enviar este formulário, você concorda com nossa Política de Privacidade e consente em receber e-mails da FourDevs Partners e de suas entidades.</p>
+
+          <div class="contact-form__actions">
+            <button type="submit" class="contact-form__submit">
+              <span>ENVIAR</span>
+              <img src="assets/enviar-underline.svg" alt="" class="contact-form__submit-line" width="77" height="3">
+            </button>
+            <p class="contact-form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__left">
+      <a href="#inicio" class="footer__brand-desktop">fourdevs</a>
+      <a href="#inicio" class="footer__brand-mobile" aria-label="Voltar ao início">
+        <img src="assets/fourdevs-logo-footer-mobile.png" alt="fourdevs">
+      </a>
+      <p class="footer__copyright">© 2025 fourdevs partners. All rights reserved.</p>
+    </div>
+
+    <div class="footer__right">
+      <div class="footer__columns">
+        <nav class="footer__nav" aria-label="Navegação do rodapé">
+          <a href="#inicio">Início</a>
+          <a href="#historia">História</a>
+          <a href="#objetivo">Objetivo</a>
+          <a href="#abordagem">Abordagem</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div class="footer__legal">
+          <a href="#contato">Políticas de Privacidade</a>
+          <a href="#contato">Termos de serviço</a>
+        </div>
+      </div>
+      <a href="#inicio" class="footer__credit">Website by fourdevs</a>
+    </div>
+  </footer>
+
+  <div class="founder-modal" id="founderModal" role="dialog" aria-modal="true" aria-labelledby="modalFounderName" hidden>
+    <div class="founder-modal__backdrop" data-close-modal></div>
+    <div class="founder-modal__dialog">
+      <button type="button" class="founder-modal__close" data-close-modal aria-label="Fechar janela">&times;</button>
+      <div class="founder-modal__photo-wrap">
+        <img src="" alt="" id="modalFounderPhoto" class="founder-modal__photo">
+      </div>
+      <div class="founder-modal__body">
+        <h3 id="modalFounderName" class="founder-modal__name"></h3>
+        <p id="modalFounderRole" class="founder-modal__role"></p>
+        <p id="modalFounderBio" class="founder-modal__bio"></p>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Voltar ao topo" hidden>
+    <img src="assets/back-to-top.svg" alt="" width="45" height="45">
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
