@@ -56,17 +56,92 @@
     });
   }
 
+  var SIMULAR_LOGIN = true;
+  var USUARIO_FAKE = { nome: "Maria Silva", email: "maria.silva@email.com" };
+
+  function usuarioLogado() {
+    try {
+      return JSON.parse(localStorage.getItem("larcerto:usuario"));
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function entrar(usuario) {
+    try {
+      localStorage.setItem("larcerto:usuario", JSON.stringify(usuario || USUARIO_FAKE));
+    } catch (e) {}
+  }
+
+  function sair() {
+    try {
+      localStorage.removeItem("larcerto:usuario");
+    } catch (e) {}
+    window.location.href = url("pages/landing-lar-certo/index.html");
+  }
+
+  if (document.body && document.body.hasAttribute("data-requer-login") && !usuarioLogado()) {
+    if (SIMULAR_LOGIN) entrar(USUARIO_FAKE);
+    else window.location.replace(url("pages/login/index.html") + "?voltar=" + encodeURIComponent(window.location.href));
+  }
+
   var LINKS = [
     ["comprar", "Comprar", "pages/filtros/index.html?finalidade=comprar"],
     ["alugar", "Alugar", "pages/filtros/index.html?finalidade=alugar"],
-    ["imoveis", "Imóveis", "pages/filtros/index.html"],
     ["sobre", "Sobre Nós", "pages/fale-conosco/index.html"],
   ];
+
+  function htmlConta() {
+    var usuario = usuarioLogado();
+    if (!usuario) return '<a class="lc-account" href="' + url("pages/login/index.html") + '">Entrar</a>';
+
+    var primeiroNome = esc(String(usuario.nome || "Minha conta").split(" ")[0]);
+    var inicial = esc(String(usuario.nome || "?").charAt(0).toUpperCase());
+    return (
+      '<div class="lc-conta">' +
+      '<button class="lc-account" type="button" aria-expanded="false" aria-haspopup="true">' +
+      '<span class="lc-account__avatar lc-account__avatar--inicial">' + inicial + "</span>" +
+      '<span class="lc-account__label">' + primeiroNome + "</span></button>" +
+      '<div class="lc-conta__menu" hidden>' +
+      '<p class="lc-conta__email">' + esc(usuario.email || "") + "</p>" +
+      '<a href="' + url("pages/perfil/index.html") + '">Meu perfil</a>' +
+      '<a href="' + url("pages/favoritos/index.html") + '">Favoritos</a>' +
+      '<button type="button" data-sair>Sair</button></div></div>'
+    );
+  }
+
+  function ativarConta(header) {
+    var conta = header.querySelector(".lc-conta");
+    if (!conta) return;
+    var botao = conta.querySelector(".lc-account");
+    var menu = conta.querySelector(".lc-conta__menu");
+    function alternar(abrir) {
+      menu.hidden = !abrir;
+      botao.setAttribute("aria-expanded", abrir);
+    }
+    botao.addEventListener("click", function () {
+      alternar(menu.hidden);
+    });
+    document.addEventListener("click", function (e) {
+      if (!conta.contains(e.target)) alternar(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") alternar(false);
+    });
+    conta.querySelector("[data-sair]").addEventListener("click", sair);
+  }
+
+  function marcarMenu(chave) {
+    document.querySelectorAll(".lc-nav__link").forEach(function (a) {
+      if (a.dataset.nav === chave) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  }
 
   function htmlHeader(opcoes) {
     var links = LINKS.map(function (l) {
       var atual = opcoes.active === l[0] ? ' aria-current="page"' : "";
-      return '<a class="lc-nav__link" href="' + url(l[2]) + '"' + atual + ">" + l[1] + "</a>";
+      return '<a class="lc-nav__link" data-nav="' + l[0] + '" href="' + url(l[2]) + '"' + atual + ">" + l[1] + "</a>";
     }).join("");
 
     return (
@@ -79,7 +154,7 @@
       '<a class="lc-icon-btn" href="' + url("pages/favoritos/index.html") + '" aria-label="Favoritos">' +
       icone("basil--heart-outline") +
       '<span class="lc-count" data-favoritos-count hidden>0</span></a>' +
-      '<a class="lc-account" href="' + url("pages/login/index.html") + '">Entrar</a>' +
+      htmlConta() +
       "</div>" +
       '<button class="lc-burger" type="button" aria-expanded="false" aria-controls="lc-nav" aria-label="Abrir menu">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>' +
@@ -235,7 +310,10 @@
       var tpl = document.createElement("template");
       tpl.innerHTML = html;
       var raiz = tpl.content.firstElementChild;
-      if (nome === "header") ativarMenu(raiz);
+      if (nome === "header") {
+        ativarMenu(raiz);
+        ativarConta(raiz);
+      }
       host.replaceWith(raiz);
     });
     atualizarContador();
@@ -246,6 +324,8 @@
     criarCard: criarCard,
     criarCategoria: criarCategoria,
     mostrarToast: mostrarToast,
+    marcarMenu: marcarMenu,
+    auth: { usuario: usuarioLogado, entrar: entrar, sair: sair },
     abrirModal: abrirModal,
     fecharModal: fecharModal,
     favoritos: { lista: listaFavoritos, alternar: alternarFavorito },

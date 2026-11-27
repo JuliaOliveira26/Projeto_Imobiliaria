@@ -138,7 +138,7 @@ No `<head>`, ajuste o caminho conforme a pasta da página:
 
 | Atributo | Valores | Para que serve |
 |---|---|---|
-| `data-active` | `comprar`, `alugar`, `imoveis`, `sobre` | Destaca o item atual do menu |
+| `data-active` | `comprar`, `alugar`, `sobre` | Destaca o item atual do menu |
 | `data-overlay` | `"true"` | Coloca o menu por cima de uma imagem (ex.: hero da home) |
 
 Exemplo com menu sobre o hero:
@@ -214,3 +214,13 @@ LarCerto.fecharModal(); // também fecha com ESC ou clicando fora
 ```
 
 Outras classes úteis: `lc-btn--block` (largura total), `lc-btn--pill` (arredondado), `lc-container` (centraliza o conteúdo) e `lc-grid-cards` (grade responsiva de cards).
+
+### 7. Login (simulado) e páginas protegidas
+
+- A landing e as páginas de login/cadastro são públicas. As demais exigem usuário logado: coloque `data-requer-login` no `<body>`.
+  ```html
+  <body data-requer-login>
+  ```
+- No header, o visitante vê **Entrar**. Logado, vê o nome (ex.: "Maria") com um menu (Meu perfil, Favoritos, Sair).
+- Enquanto não existe a tela de login, `SIMULAR_LOGIN = true` em `components/components.js` entra sozinho com o usuário "Maria Silva" ao abrir uma página protegida. Quando o login estiver pronto, troque para `false` e as páginas protegidas passam a redirecionar para `pages/login/index.html`.
+- Para logar por código: `LarCerto.auth.entrar({ nome: "Ana Souza", email: "ana@email.com" })`. Para sair: `LarCerto.auth.sair()`.

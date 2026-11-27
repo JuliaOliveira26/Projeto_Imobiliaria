@@ -22,6 +22,11 @@ var ListagemImoveis = (function () {
 
       campoBusca.value = estado.busca;
 
+      if (layout.dataset.menu === "finalidade") {
+        LarCerto.marcarMenu(estado.finalidade);
+        document.title = (estado.finalidade === "alugar" ? "Alugar imóveis" : "Comprar imóveis") + (layout.classList.contains("listagem--mapa") ? " no mapa" : "") + " | Lar Certo";
+      }
+
       var query = FiltrosImoveis.paraUrl(estado);
       window.history.replaceState(null, "", "?" + query);
       linkAlternar.href = linkAlternar.dataset.destino + "?" + query;
